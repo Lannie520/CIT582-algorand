@@ -32,7 +32,7 @@ def send_tokens( receiver_pk, tx_amount ):
 
     #Your code here
     private_key = "JnU3uxlyHBK5Dut5KSzkkYu+FauQeG0U/iGLMmn4bt04XRixztR3qSmFsGpJL4BUeggwv35632TAUBmfXlJzMQ=="
-    sender_pk = "HBORRMOO2R32SKMFWBVESL4AKR5AQMF7PZ5N6ZGAKAMZ6XSSOMY2IRKSHU"
+    public_address = "HBORRMOO2R32SKMFWBVESL4AKR5AQMF7PZ5N6ZGAKAMZ6XSSOMY2IRKSHU"
 
     tx = transaction.PaymentTxn(public_address, tx_fee, first_valid_round, last_valid_round, gen_hash, receiver_pk,
                                 tx_amount)
@@ -40,7 +40,7 @@ def send_tokens( receiver_pk, tx_amount ):
     txid = tx.get_txid()
     acl.send_transaction(signed_tx)
 
-    return sender_pk, txid
+    return public_address, txid
 
 # Function from Algorand Inc.
 def wait_for_confirmation(client, txid):
